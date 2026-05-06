@@ -16,7 +16,7 @@ export const Hero = () => {
         >
           <div className="space-y-2">
             <h1 className="text-4xl md:text-6xl font-bold font-mono">
-              I&apos;m <span className="text-accent text-glow">Imran Baithan</span>,
+              I&apos;m <span className="text-accent text-glow">Amjad Ali</span>,
               <br />
               a <span className="text-accent/80">front-end developer</span>
             </h1>
@@ -38,29 +38,43 @@ export const Hero = () => {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative w-64 h-64 md:w-96 md:h-96"
+          initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-72 h-80 md:w-[450px] md:h-[550px]"
         >
-          {/* Decorative elements */}
-          <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-accent/50" />
-          <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-accent/50" />
+          {/* Animated decorative rings */}
+          <div className="absolute inset-0 border-2 border-accent/20 rounded-2xl -rotate-3 scale-105 animate-[spin_20s_linear_infinite]" />
+          <div className="absolute inset-0 border-2 border-accent/10 rounded-2xl rotate-6 scale-110 animate-[spin_15s_linear_infinite_reverse]" />
           
-          <div className="relative w-full h-full overflow-hidden border border-border rounded-lg group">
+          {/* Main image container with glassmorphism and glow */}
+          <div className="relative w-full h-full overflow-hidden border border-border rounded-2xl group shadow-2xl shadow-accent/20">
             <Image
-              src="/hero-portrait.png"
-              alt="Imran Baithan"
+              src="/hero-portrait.jpg"
+              alt="Amjad Ali"
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+              className="object-cover object-top transition-all duration-700 group-hover:scale-105"
               priority
             />
-            <div className="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors" />
+            
+            {/* Subtle overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+            
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-accent/5 pointer-events-none" />
           </div>
 
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-max bg-background border border-border px-4 py-2 flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-            <span className="font-mono text-xs text-foreground/60">Currently working on <span className="text-foreground">Portfolio</span></span>
+          {/* Status Badge */}
+          <div className="absolute -bottom-6 right-4 md:-right-8 bg-background/80 backdrop-blur-md border border-border px-6 py-3 rounded-xl shadow-xl flex items-center gap-3">
+            <div className="relative">
+              <div className="w-3 h-3 bg-green-500 rounded-full" />
+              <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping opacity-75" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest leading-none mb-1">Availability</span>
+              <span className="font-mono text-xs font-bold text-foreground">Available for Projects</span>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -75,7 +89,7 @@ export const Hero = () => {
         <p className="text-xl md:text-2xl font-mono text-foreground/80 italic">
           &ldquo;With a developer who thinks like a user, builds like an engineer, and delivers like a professional.&rdquo;
         </p>
-        <div className="mt-4 font-mono text-accent">- M. Imran Baithan</div>
+        <div className="mt-4 font-mono text-accent">- Amjad Ali</div>
       </motion.div>
     </section>
   );

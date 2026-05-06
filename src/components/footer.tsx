@@ -8,10 +8,10 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-accent rounded-sm flex items-center justify-center font-mono font-bold text-background text-xs">
-                IB
+                AA
               </div>
-              <span className="font-mono font-bold">imransite</span>
-              <span className="text-foreground/40 text-xs font-mono ml-4">imran@example.com</span>
+              <span className="font-mono font-bold">amjadsite</span>
+              <span className="text-foreground/40 text-xs font-mono ml-4">amjad@example.com</span>
             </div>
             <p className="text-sm text-foreground/60 font-mono">
               Front-end developer and UI designer
@@ -32,7 +32,7 @@ export const Footer = () => {
         </div>
 
         <div className="text-center text-foreground/30 text-[10px] font-mono">
-          © Copyright 2026. Made with Next.js, Tailwind, and Framer Motion by Imran.
+          © Copyright 2026. Made with Next.js, Tailwind, and Framer Motion by Amjad Ali.
         </div>
       </div>
     </footer>

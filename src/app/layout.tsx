@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Imran Baithan | Front-end Developer",
+  title: "Amjad Ali | Front-end Developer",
   description: "I build fast, responsive, and beautiful web applications with modern technologies.",
 };
 

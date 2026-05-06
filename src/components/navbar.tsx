@@ -37,9 +37,9 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center font-mono font-bold text-background group-hover:scale-110 transition-transform">
-            IB
+            AA
           </div>
-          <span className="font-mono text-xl font-bold tracking-tighter">imransite</span>
+          <span className="font-mono text-xl font-bold tracking-tighter">amjadsite</span>
         </Link>
 
         {/* Desktop Nav */}

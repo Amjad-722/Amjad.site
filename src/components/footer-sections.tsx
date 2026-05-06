@@ -8,7 +8,7 @@ const testimonials = [
   {
     name: "Ahmad Suleiman",
     role: "CEO at TechFlow",
-    content: "Imran delivered a high-quality dashboard that exceeded our expectations. His attention to detail is remarkable.",
+    content: "Amjad Ali delivered a high-quality dashboard that exceeded our expectations. His attention to detail is remarkable.",
     stars: 5,
   },
   {
@@ -87,14 +87,14 @@ export const Contact = () => {
             <div className="border border-border p-6 space-y-4 max-w-sm">
               <h4 className="font-bold font-mono text-accent">Message me here</h4>
               <div className="space-y-2">
-                <a href="mailto:imran@example.com" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                   Email: imran@example.com
+                <a href="mailto:amjad@example.com" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
+                   Email: amjad@example.com
                 </a>
                 <a href="#" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                   Twitter: @imranbaithan
+                   Twitter: @amjadali
                 </a>
                 <a href="#" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                   Discord: Imran#1234
+                   Discord: Amjad#1234
                 </a>
               </div>
             </div>

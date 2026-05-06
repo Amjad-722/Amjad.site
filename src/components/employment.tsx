@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const experiences = [
   {
     title: "Full-stack Developer / Owner",
-    company: "Imran.me",
+    company: "Amjad.me",
     period: "January 2021 - Present",
     description: [
       "Built and maintained complex web applications using Next.js and Supabase.",
