@@ -23,8 +23,11 @@ export const Hero = () => {
           </div>
           
           <p className="text-foreground/60 text-lg max-w-xl leading-relaxed">
-            I build fast, responsive, and pixel-perfect Next.js apps. 
-            High efficiency, clean code, zero-limit deadlines.
+            I specialize in building intelligent, high-performance web apps using 
+            <span className="text-foreground font-bold"> Agentic AI</span>, 
+            <span className="text-foreground font-bold"> Supabase</span>, and 
+            <span className="text-foreground font-bold"> Next.js</span>. 
+            From RLS security to UI repair, I deliver pixel-perfect solutions fast.
           </p>
 
           <div className="flex gap-4">

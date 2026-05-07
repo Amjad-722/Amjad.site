@@ -7,15 +7,27 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 
 const testimonials = [
   {
-    name: "Ahmad Suleiman",
-    role: "CEO at TechFlow",
-    content: "Amjad Ali delivered a high-quality dashboard that exceeded our expectations. His attention to detail is remarkable.",
+    name: "Upwork Client",
+    role: "System Optimization & MVP Development",
+    content: "Working with Amjad was smooth and professional. He delivered the WhatsApp end-to-end messaging flow successfully, integrated Stripe, improved performance, and deployed the app on Vercel. Communication was clear and support was great.",
     stars: 5,
   },
   {
-    name: "Sarah Jenkins",
-    role: "Product Manager",
-    content: "Perfect UI/UX implementation. The site is incredibly fast and looks stunning on all devices.",
+    name: "Upwork Client",
+    role: "Stripe Integration for E-Commerce",
+    content: "It was great working with Amjad. He is very responsive and easy to work with. He is brilliant in his technical skills and understands requirements quickly. He successfully implemented Stripe on my Lovable website.",
+    stars: 5,
+  },
+  {
+    name: "Upwork Client",
+    role: "Lovable Expert for Accounting LLM",
+    content: "Amjad was super reliable and got our UI off to a great start. Recommend for Lovable projects. Thanks again!",
+    stars: 5,
+  },
+  {
+    name: "Upwork Client",
+    role: "Lovable Development Project",
+    content: "Amjad was very helpful and efficient in helping me with technical issues and development on my Lovable project. Definitely recommend.",
     stars: 5,
   },
 ];
@@ -34,7 +46,7 @@ export const Testimonials = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((t, index) => (
             <motion.div
-              key={t.name}
+              key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -50,15 +62,20 @@ export const Testimonials = () => {
                 &ldquo;{t.content}&rdquo;
               </p>
               
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center font-mono font-bold text-accent">
-                  {t.name.charAt(0)}
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-full flex items-center justify-center font-mono font-bold text-accent">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold font-mono text-sm">{t.name}</h4>
+                    <p className="text-[10px] text-foreground/40 font-mono uppercase tracking-tighter">{t.role}</p>
+                  </div>
+                  <div className="hidden sm:block">
+                    <span className="text-[10px] font-mono bg-green-500/10 text-green-500 px-2 py-1 border border-green-500/20">
+                      UPWORK VERIFIED
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold font-mono text-sm">{t.name}</h4>
-                  <p className="text-xs text-foreground/50">{t.role}</p>
-                </div>
-              </div>
             </motion.div>
           ))}
         </div>

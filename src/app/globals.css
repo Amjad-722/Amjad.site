@@ -79,3 +79,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@theme {
+  --animate-marquee: marquee 30s linear infinite;
+}
+
