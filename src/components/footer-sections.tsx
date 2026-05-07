@@ -186,8 +186,8 @@ export const Contact = () => {
               <div className="border border-border p-6 space-y-4 bg-background/50 backdrop-blur-sm">
                 <h4 className="font-bold font-mono text-accent">Message me here</h4>
                 <div className="space-y-2">
-                  <a href="mailto:amjad@example.com" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                     Email: amjad@example.com
+                  <a href="mailto:aliamjad722ee@gmail.com" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
+                     Email: aliamjad722ee@gmail.com
                   </a>
                   <a href="#" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
                      Discord: Amjad#1234
@@ -198,11 +198,11 @@ export const Contact = () => {
               <div className="border border-border p-6 space-y-4 bg-background/50 backdrop-blur-sm">
                 <h4 className="font-bold font-mono text-accent">Socials</h4>
                 <div className="space-y-2">
-                  <a href="#" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                     Twitter: @amjadali
+                  <a href="https://twitter.com/aliamjad" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
+                     Twitter: @aliamjad
                   </a>
-                  <a href="#" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
-                     LinkedIn: /in/amjadali
+                  <a href="https://linkedin.com/in/aliamjad722" className="block text-sm text-foreground/60 hover:text-accent font-mono transition-colors">
+                     LinkedIn: /in/aliamjad722
                   </a>
                 </div>
               </div>
