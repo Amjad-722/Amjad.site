@@ -28,10 +28,16 @@ export const Hero = () => {
           </p>
 
           <div className="flex gap-4">
-            <button className="px-8 py-3 bg-accent text-background font-mono font-bold hover:bg-accent/90 transition-all border-glow">
+            <button 
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-8 py-3 bg-accent text-background font-mono font-bold hover:bg-accent/90 transition-all border-glow"
+            >
               Contact me !!
             </button>
-            <button className="px-8 py-3 border border-border text-foreground/70 font-mono hover:bg-border/50 transition-all">
+            <button 
+              onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-8 py-3 border border-border text-foreground/70 font-mono hover:bg-border/50 transition-all"
+            >
               View Skills
             </button>
           </div>

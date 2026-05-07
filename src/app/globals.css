@@ -11,6 +11,10 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #0d0d0d;
   --foreground: #e0e0e0;

@@ -51,7 +51,7 @@ export const Projects = () => {
             <span className="text-accent">#</span>projects
           </h2>
           <div className="h-px bg-accent/30 flex-1" />
-          <Link href="#all-projects" className="text-foreground/60 hover:text-accent font-mono text-sm transition-colors">
+          <Link href="#projects" className="text-foreground/60 hover:text-accent font-mono text-sm transition-colors">
             View all ~~{">"}
           </Link>
         </div>

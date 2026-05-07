@@ -75,7 +75,9 @@ export const Plans = () => {
                 ))}
               </ul>
 
-              <button className={`w-full py-3 font-mono font-bold transition-all ${
+              <button 
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className={`w-full py-3 font-mono font-bold transition-all ${
                 plan.highlight 
                   ? "bg-accent text-background hover:bg-accent/90" 
                   : "border border-border text-foreground/60 hover:bg-border/50"
