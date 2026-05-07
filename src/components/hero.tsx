@@ -23,15 +23,24 @@ export const Hero = () => {
           </div>
           
           <p className="text-foreground/60 text-lg max-w-xl leading-relaxed">
-            I build fast, responsive, and pixel-perfect Next.js apps. 
-            High efficiency, clean code, zero-limit deadlines.
+            I specialize in building intelligent, high-performance web apps using 
+            <span className="text-foreground font-bold"> Agentic AI</span>, 
+            <span className="text-foreground font-bold"> Supabase</span>, and 
+            <span className="text-foreground font-bold"> Next.js</span>. 
+            From RLS security to UI repair, I deliver pixel-perfect solutions fast.
           </p>
 
           <div className="flex gap-4">
-            <button className="px-8 py-3 bg-accent text-background font-mono font-bold hover:bg-accent/90 transition-all border-glow">
+            <button 
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-8 py-3 bg-accent text-background font-mono font-bold hover:bg-accent/90 transition-all border-glow"
+            >
               Contact me !!
             </button>
-            <button className="px-8 py-3 border border-border text-foreground/70 font-mono hover:bg-border/50 transition-all">
+            <button 
+              onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-8 py-3 border border-border text-foreground/70 font-mono hover:bg-border/50 transition-all"
+            >
               View Skills
             </button>
           </div>

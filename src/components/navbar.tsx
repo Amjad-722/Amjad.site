@@ -15,6 +15,8 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+import { ThemeToggle } from "./theme-toggle";
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +41,7 @@ export const Navbar = () => {
           <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center font-mono font-bold text-background group-hover:scale-110 transition-transform">
             AA
           </div>
-          <span className="font-mono text-xl font-bold tracking-tighter">amjadsite</span>
+          <span className="font-mono text-xl font-bold tracking-tighter text-foreground">amjadsite</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -55,12 +57,15 @@ export const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
             </Link>
           ))}
-          <Link
-            href="#contact"
-            className="px-4 py-2 border border-accent text-accent font-mono text-sm hover:bg-accent hover:text-background transition-all"
-          >
-            Hire me!
-          </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Link
+              href="#contact"
+              className="px-4 py-2 border border-accent text-accent font-mono text-sm hover:bg-accent hover:text-background transition-all"
+            >
+              Hire me!
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,6 +97,10 @@ export const Navbar = () => {
                 {link.name.toLowerCase()}
               </Link>
             ))}
+            <div className="flex items-center justify-between py-2">
+              <span className="font-mono text-sm text-foreground/50">Switch Theme</span>
+              <ThemeToggle />
+            </div>
             <Link
               href="#contact"
               onClick={() => setIsOpen(false)}

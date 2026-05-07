@@ -55,7 +55,7 @@ export const Plans = () => {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               className={`border p-8 bg-background flex flex-col ${
-                plan.highlight ? "border-accent shadow-[0_0_30px_rgba(168,85,247,0.1)]" : "border-border"
+                plan.highlight ? "border-accent shadow-[0_0_30px_var(--accent-muted)]" : "border-border"
               }`}
             >
               <div className="mb-6">
@@ -75,7 +75,9 @@ export const Plans = () => {
                 ))}
               </ul>
 
-              <button className={`w-full py-3 font-mono font-bold transition-all ${
+              <button 
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className={`w-full py-3 font-mono font-bold transition-all ${
                 plan.highlight 
                   ? "bg-accent text-background hover:bg-accent/90" 
                   : "border border-border text-foreground/60 hover:bg-border/50"

@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+const socials = [
+  { name: "Github", href: "https://github.com/Amjad-722" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/webdev-amjad/" },
+  { name: "Twitter", href: "https://twitter.com/aliamjad" },
+  { name: "Discord", href: "https://discord.gg/amjad" },
+];
+
 export const Footer = () => {
   return (
     <footer className="py-12 px-6 border-t border-border">
@@ -11,20 +18,19 @@ export const Footer = () => {
                 AA
               </div>
               <span className="font-mono font-bold">amjadsite</span>
-              <span className="text-foreground/40 text-xs font-mono ml-4">amjad@example.com</span>
             </div>
             <p className="text-sm text-foreground/60 font-mono">
-              Front-end developer and UI designer
+              Agentic AI & Full-stack Developer
             </p>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-bold font-mono text-lg">Media</h4>
             <div className="flex gap-4">
-              {["github", "linkedin", "twitter", "discord"].map((social) => (
-                <Link key={social} href="#" className="text-foreground/40 hover:text-accent transition-colors">
-                  <span className="sr-only">{social}</span>
-                  <div className="capitalize text-sm font-mono">{social}</div>
+              {socials.map((social) => (
+                <Link key={social.name} href={social.href} className="text-foreground/40 hover:text-accent transition-colors">
+                  <span className="sr-only">{social.name}</span>
+                  <div className="capitalize text-sm font-mono">{social.name}</div>
                 </Link>
               ))}
             </div>

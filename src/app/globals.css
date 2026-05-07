@@ -1,45 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0d0d0d;
-  --color-foreground: #e0e0e0;
-  --color-accent: #a855f7;
-  --color-accent-muted: rgba(168, 85, 247, 0.15);
-  --color-border: #262626;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-border: var(--border);
   
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 :root {
+  --background: #fdfdfd;
+  --foreground: #0a0a0a;
+  --accent: #7c3aed;
+  --accent-muted: rgba(124, 58, 237, 0.1);
+  --border: #e2e8f0;
+  --grid-dots: #e2e8f0;
+}
+
+.dark {
   --background: #0d0d0d;
   --foreground: #e0e0e0;
+  --accent: #a855f7;
+  --accent-muted: rgba(168, 85, 247, 0.15);
+  --border: #262626;
+  --grid-dots: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    text-shadow: 0 0 10px var(--accent);
+    filter: drop-shadow(0 0 5px var(--accent));
   }
   
   .border-glow {
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 15px var(--accent-muted);
   }
 
   .grid-bg {
-    background-image: radial-gradient(circle at 2px 2px, #1a1a1a 1px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, var(--grid-dots) 1px, transparent 0);
     background-size: 24px 24px;
   }
 
   .glass-card {
-    background: rgba(26, 26, 26, 0.6);
+    background: color-mix(in srgb, var(--background), transparent 40%);
     backdrop-filter: blur(8px);
-    border: 1px solid #262626;
+    border: 1px solid var(--border);
   }
 }
 
@@ -49,14 +68,24 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: var(--border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a855f7;
+  background: var(--accent);
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@theme {
+  --animate-marquee: marquee 30s linear infinite;
+}
+

@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 const skills = [
   {
-    category: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL"],
+    category: "AI & Low-Code",
+    items: ["Agentic AI Coding", "Cursor", "Lovable", "Replit", "No-Code Dev"],
   },
   {
-    category: "Databases",
-    items: ["SQLite", "PostgreSQL", "Supabase", "Redis"],
+    category: "Solutions",
+    items: ["CRM Development", "SaaS Platforms", "Dashboards", "API Design"],
   },
   {
-    category: "Frameworks",
-    items: ["Next.js", "React", "Vue.js", "Tailwind CSS"],
+    category: "Full-stack",
+    items: ["Next.js", "React", "TypeScript", "Supabase"],
   },
   {
-    category: "Tools",
-    items: ["Git", "Docker", "Vite", "Framer Motion"],
+    category: "Performance",
+    items: ["Performance Opt.", "SEO", "RLS Policies", "Code Audit"],
   },
   {
-    category: "Other",
-    items: ["HTML", "CSS", "REST", "GraphQL"],
+    category: "Maintenance",
+    items: ["Bug Fixing", "UI Repair", "Database Fixes", "Hotfixes"],
   },
 ];
 
@@ -71,6 +71,101 @@ export const Skills = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+        {/* Solutions Marquee */}
+        <div className="mt-24 relative overflow-hidden">
+          <div className="flex items-center gap-4 mb-8">
+            <h3 className="text-xl font-bold font-mono">
+              <span className="text-accent">/</span>solutions
+            </h3>
+            <div className="h-px bg-accent/20 flex-1" />
+          </div>
+          
+          <div className="flex flex-col gap-4">
+             <div className="flex gap-4 animate-[marquee_30s_linear_infinite] whitespace-nowrap py-4">
+                {[
+                  "SaaS Platforms", "Admin Panels", "API Integrations", "Auth Systems", 
+                  "Payment Gateways", "CMS Portals", "E-commerce", "Chat Apps", 
+                  "Dashboards", "Portfolio Sites", "CRM Systems", "Landing Pages"
+                ].map((item, i) => (
+                  <motion.div 
+                    key={item} 
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ 
+                      duration: 3 + (i % 2), 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: i * 0.1
+                    }}
+                    className="px-6 py-3 border border-border bg-background/50 font-mono text-sm hover:border-accent transition-colors shadow-sm"
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[
+                  "SaaS Platforms", "Admin Panels", "API Integrations", "Auth Systems", 
+                  "Payment Gateway", "CMS Portal", "E-commerce", "Chat App", 
+                  "Dashboard", "Portfolio Site", "CRM System", "Landing Page"
+                ].map((item, i) => (
+                  <motion.div 
+                    key={item + "-dup"} 
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ 
+                      duration: 3 + (i % 2), 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: i * 0.1
+                    }}
+                    className="px-6 py-3 border border-border bg-background/50 font-mono text-sm hover:border-accent transition-colors shadow-sm"
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+             </div>
+
+             <div className="flex gap-4 animate-[marquee_25s_linear_infinite_reverse] whitespace-nowrap py-4">
+                {[
+                  "Bug Fixing", "UI Repair", "Performance Audit", "RLS Setup", 
+                  "Agentic AI Setup", "Cursor Workflows", "Lovable Expert", 
+                  "Database Design", "Cloud Migration", "SEO Optimization"
+                ].map((item, i) => (
+                  <motion.div 
+                    key={item} 
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ 
+                      duration: 2.5 + (i % 2), 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: i * 0.1
+                    }}
+                    className="px-6 py-3 border border-border bg-background/50 font-mono text-sm hover:border-accent transition-colors shadow-sm"
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[
+                  "Bug Fixing", "UI Repair", "Performance Audit", "RLS Setup", 
+                  "Agentic AI Setup", "Cursor Workflows", "Lovable Expert", 
+                  "Database Design", "Cloud Migration", "SEO Optimization"
+                ].map((item, i) => (
+                  <motion.div 
+                    key={item + "-dup"} 
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ 
+                      duration: 2.5 + (i % 2), 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: i * 0.1
+                    }}
+                    className="px-6 py-3 border border-border bg-background/50 font-mono text-sm hover:border-accent transition-colors shadow-sm"
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+             </div>
           </div>
         </div>
       </div>
