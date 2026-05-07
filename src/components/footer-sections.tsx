@@ -33,8 +33,25 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
+  const [active, setActive] = React.useState(0);
+
+  const next = React.useCallback(() => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  }, []);
+
+  const prev = React.useCallback(() => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      next();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
-    <section id="testimonials" className="py-20 px-6">
+    <section id="testimonials" className="py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
           <h2 className="text-3xl font-bold font-mono">
@@ -43,40 +60,92 @@ export const Testimonials = () => {
           <div className="h-px bg-accent/30 w-32" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((t, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="border border-border p-8 bg-background relative"
+        <div className="relative h-[450px] flex items-center justify-center">
+          {/* Controls */}
+          <div className="absolute inset-0 flex items-center justify-between z-30 px-4 md:px-0 pointer-events-none">
+            <button 
+              onClick={prev}
+              className="w-12 h-12 flex items-center justify-center border border-border bg-background/80 backdrop-blur-md hover:border-accent transition-colors pointer-events-auto group"
             >
-              <div className="flex gap-1 mb-4">
-                {[...Array(t.stars)].map((_, i) => (
-                  <StarIcon key={i} className="w-5 h-5 text-accent" />
-                ))}
-              </div>
-              
-              <p className="text-lg text-foreground/80 mb-6 italic">
-                &ldquo;{t.content}&rdquo;
-              </p>
-              
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-full flex items-center justify-center font-mono font-bold text-accent">
-                    {t.name.charAt(0)}
+              <div className="w-2 h-2 border-l border-t border-foreground group-hover:border-accent -rotate-45" />
+            </button>
+            <button 
+              onClick={next}
+              className="w-12 h-12 flex items-center justify-center border border-border bg-background/80 backdrop-blur-md hover:border-accent transition-colors pointer-events-auto group"
+            >
+              <div className="w-2 h-2 border-r border-t border-foreground group-hover:border-accent rotate-45" />
+            </button>
+          </div>
+
+          <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
+            {testimonials.map((t, index) => {
+              const isActive = index === active;
+              const isPrev = index === (active - 1 + testimonials.length) % testimonials.length;
+              const isNext = index === (active + 1) % testimonials.length;
+
+              if (!isActive && !isPrev && !isNext) return null;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={false}
+                  animate={{
+                    x: isActive ? 0 : isPrev ? "-75%" : "75%",
+                    scale: isActive ? 1 : 0.85,
+                    opacity: isActive ? 1 : 0.5,
+                    zIndex: isActive ? 20 : 10,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 26,
+                  }}
+                  className={`absolute w-full max-w-xl border border-border p-8 bg-background shadow-2xl transition-all ${
+                    isActive ? "border-accent/30" : "grayscale pointer-events-none blur-[1px]"
+                  }`}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(t.stars)].map((_, i) => (
+                      <StarIcon key={i} className="w-5 h-5 text-accent" />
+                    ))}
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-bold font-mono text-sm">{t.name}</h4>
-                    <p className="text-[10px] text-foreground/40 font-mono uppercase tracking-tighter">{t.role}</p>
+                  
+                  <p className="text-lg md:text-xl text-foreground/80 mb-8 italic leading-relaxed">
+                    &ldquo;{t.content}&rdquo;
+                  </p>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-full flex items-center justify-center font-mono font-bold text-accent">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold font-mono text-sm">{t.name}</h4>
+                      <p className="text-[10px] text-foreground/40 font-mono uppercase tracking-tighter">{t.role}</p>
+                    </div>
+                    {isActive && (
+                      <div className="hidden sm:block">
+                        <span className="text-[10px] font-mono bg-green-500/10 text-green-500 px-2 py-1 border border-green-500/20">
+                          UPWORK VERIFIED
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <div className="hidden sm:block">
-                    <span className="text-[10px] font-mono bg-green-500/10 text-green-500 px-2 py-1 border border-green-500/20">
-                      UPWORK VERIFIED
-                    </span>
-                  </div>
-                </div>
-            </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`w-2 h-2 border border-accent/30 transition-all ${
+                i === active ? "bg-accent w-8" : "bg-transparent hover:bg-accent/20"
+              }`}
+            />
           ))}
         </div>
       </div>
