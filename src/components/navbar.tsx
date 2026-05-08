@@ -7,12 +7,12 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Employment", href: "#employment" },
-  { name: "Plans", href: "#plans" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Employment", href: "/#employment" },
+  { name: "Plans", href: "/#plans" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 import { ThemeToggle } from "./theme-toggle";
@@ -60,7 +60,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <Link
-              href="#contact"
+              href="/#contact"
               className="px-4 py-2 border border-accent text-accent font-mono text-sm hover:bg-accent hover:text-background transition-all"
             >
               Hire me!
@@ -102,7 +102,7 @@ export const Navbar = () => {
               <ThemeToggle />
             </div>
             <Link
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsOpen(false)}
               className="w-full py-3 border border-accent text-accent font-mono text-center hover:bg-accent hover:text-background transition-all"
             >

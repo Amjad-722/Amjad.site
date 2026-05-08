@@ -1,39 +1,40 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
-
 import { projects } from "@/data/projects";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
-export const Projects = () => {
+export default function AllProjectsPage() {
   return (
-    <section id="projects" className="py-20 px-6">
+    <main className="min-h-screen pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="text-3xl font-bold font-mono">
-            <span className="text-accent">#</span>projects
-          </h2>
-          <div className="h-px bg-accent/30 flex-1" />
-          <Link href="/projects" className="text-foreground/60 hover:text-accent font-mono text-sm transition-colors">
-            View all ~~{">"}
-          </Link>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl font-bold font-mono tracking-tight">
+              <span className="text-accent">/</span>projects
+            </h1>
+            <p className="text-foreground/60 font-mono text-sm max-w-md">
+              A comprehensive list of my professional work, experimental projects, and open-source contributions.
+            </p>
+          </div>
+          <div className="font-mono text-xs text-foreground/30">
+            Total Projects: {projects.length}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {projects.slice(0, 3).map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
             <motion.div
               key={project.slug}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               className="border border-border bg-background group hover:border-accent/50 transition-all flex flex-col"
             >
               <Link href={`/projects/${project.slug}`} className="block overflow-hidden aspect-video relative bg-muted">
-                {/* Placeholder for project image */}
                 <div className="absolute inset-0 flex items-center justify-center text-accent/20 font-mono text-4xl font-bold group-hover:scale-110 transition-transform duration-500">
                    {project.title}
                 </div>
@@ -62,31 +63,16 @@ export const Projects = () => {
                 <div className="flex gap-3 pt-4">
                   <Link 
                     href={`/projects/${project.slug}`}
-                    className="flex items-center gap-2 border border-accent text-accent px-4 py-2 font-mono text-xs hover:bg-accent hover:text-background transition-all"
+                    className="flex items-center gap-2 border border-accent text-accent px-4 py-2 font-mono text-xs hover:bg-accent hover:text-background transition-all w-full justify-center"
                   >
-                    View <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                    View Details <ArrowTopRightOnSquareIcon className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
-          <Link 
-            href="/projects"
-            className="group flex items-center gap-3 px-8 py-4 border border-accent text-accent font-mono text-sm hover:bg-accent hover:text-background transition-all"
-          >
-            SEE ALL PROJECTS 
-            <span className="group-hover:translate-x-2 transition-transform">~~{">"}</span>
-          </Link>
-        </motion.div>
       </div>
-    </section>
+    </main>
   );
-};
+}
