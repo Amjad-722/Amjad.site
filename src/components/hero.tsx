@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
@@ -30,19 +31,19 @@ export const Hero = () => {
             From RLS security to UI repair, I deliver pixel-perfect solutions fast.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-3 bg-accent text-background font-mono font-bold hover:bg-accent/90 transition-all border-glow"
             >
               Contact me !!
             </button>
-            <button 
-              onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 border border-border text-foreground/70 font-mono hover:bg-border/50 transition-all"
+            <Link 
+              href="/about"
+              className="px-8 py-3 border border-accent text-accent font-mono hover:bg-accent/5 transition-all"
             >
-              View Skills
-            </button>
+              About Me ~~{">"}
+            </Link>
           </div>
         </motion.div>
 
