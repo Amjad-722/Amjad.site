@@ -173,9 +173,9 @@ export default function ProjectDetail() {
                       </h2>
                       <div className="grid gap-4">
                         {project.clientChallenge.map((challenge, i) => (
-                          <div key={i} className="flex items-start gap-3 p-4 border border-border bg-muted/30 group hover:border-accent/20 transition-colors">
-                            <span className="text-accent/50 mt-0.5">•</span>
-                            <span className="text-foreground/80 text-sm">{challenge}</span>
+                          <div key={i} className="flex items-start gap-4 p-4 border border-border bg-muted/10 group hover:border-accent/20 transition-all">
+                            <div className="w-1.5 h-6 bg-accent/20 -skew-x-12 mt-0.5 group-hover:bg-accent transition-colors" />
+                            <span className="text-foreground/80 leading-relaxed">{challenge}</span>
                           </div>
                         ))}
                       </div>
