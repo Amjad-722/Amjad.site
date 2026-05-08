@@ -124,7 +124,7 @@ export const Testimonials = () => {
                     </div>
                     {isActive && (
                       <div className="hidden sm:block">
-                        <span className="text-[10px] font-mono bg-green-500/10 text-green-500 px-2 py-1 border border-green-500/20">
+                        <span className="text-[10px] font-mono bg-accent/10 text-accent px-2 py-1 border border-accent/20">
                           UPWORK VERIFIED
                         </span>
                       </div>

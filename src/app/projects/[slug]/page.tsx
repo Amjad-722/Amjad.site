@@ -173,9 +173,9 @@ export default function ProjectDetail() {
                       </h2>
                       <div className="grid gap-4">
                         {project.clientChallenge.map((challenge, i) => (
-                          <div key={i} className="flex items-start gap-4 p-5 border border-border bg-muted/30 group hover:border-red-500/20 transition-colors">
-                            <ExclamationTriangleIcon className="w-6 h-6 text-red-500/50 shrink-0" />
-                            <span className="text-foreground/80 leading-relaxed">{challenge}</span>
+                          <div key={i} className="flex items-start gap-3 p-4 border border-border bg-muted/30 group hover:border-accent/20 transition-colors">
+                            <span className="text-accent/50 mt-0.5">•</span>
+                            <span className="text-foreground/80 text-sm">{challenge}</span>
                           </div>
                         ))}
                       </div>

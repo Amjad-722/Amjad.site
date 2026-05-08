@@ -77,8 +77,8 @@ export const Hero = () => {
           {/* Status Badge */}
           <div className="absolute -bottom-6 right-4 md:-right-8 bg-background/80 backdrop-blur-md border border-border px-6 py-3 rounded-xl shadow-xl flex items-center gap-3">
             <div className="relative">
-              <div className="w-3 h-3 bg-green-500 rounded-full" />
-              <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping opacity-75" />
+              <div className="w-3 h-3 bg-accent rounded-full" />
+              <div className="absolute inset-0 w-3 h-3 bg-accent rounded-full animate-ping opacity-75" />
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest leading-none mb-1">Availability</span>

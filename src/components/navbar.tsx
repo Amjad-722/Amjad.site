@@ -16,6 +16,7 @@ const navLinks = [
 ];
 
 import { ThemeToggle } from "./theme-toggle";
+import { AccentToggle } from "./accent-toggle";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +59,7 @@ export const Navbar = () => {
             </Link>
           ))}
           <div className="flex items-center gap-4">
+            <AccentToggle />
             <ThemeToggle />
             <Link
               href="/#contact"
@@ -97,6 +99,10 @@ export const Navbar = () => {
                 {link.name.toLowerCase()}
               </Link>
             ))}
+            <div className="flex items-center justify-between py-2">
+              <span className="font-mono text-sm text-foreground/50">Custom Accent</span>
+              <AccentToggle />
+            </div>
             <div className="flex items-center justify-between py-2">
               <span className="font-mono text-sm text-foreground/50">Switch Theme</span>
               <ThemeToggle />

@@ -6,27 +6,64 @@
   --color-accent: var(--accent);
   --color-accent-muted: var(--accent-muted);
   --color-border: var(--border);
-  
+
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 :root {
+  /* Design Tokens - Light */
   --background: #fdfdfd;
   --foreground: #0a0a0a;
   --accent: #7c3aed;
   --accent-muted: rgba(124, 58, 237, 0.1);
   --border: #e2e8f0;
   --grid-dots: #e2e8f0;
+
+  /* Premium Accent Presets */
+  --clr-cyan: #20707e;
+  --clr-indigo: #1e3a8a;
+  --clr-rose: #ab293f;
+  --clr-emerald: #237157;
+  --clr-amber: #b18c4d;
 }
 
 .dark {
+  /* Design Tokens - Dark */
   --background: #0d0d0d;
-  --foreground: #e0e0e0;
-  --accent: #a855f7;
-  --accent-muted: rgba(168, 85, 247, 0.15);
+  --foreground: #ffffff;
+  --accent: var(--clr-indigo);
+  --accent-muted: rgba(99, 102, 241, 0.15);
   --border: #262626;
   --grid-dots: #1a1a1a;
+}
+
+/* Accent Theming System */
+[data-accent="cyan"] {
+  --accent: var(--clr-cyan);
+  --accent-muted: color-mix(in srgb, var(--clr-cyan), transparent 85%);
+}
+
+[data-accent="indigo"] {
+  --accent: var(--clr-indigo);
+  --accent-muted: color-mix(in srgb, var(--clr-indigo), transparent 85%);
+}
+
+[data-accent="rose"] {
+  --accent: var(--clr-rose);
+  --accent-muted: color-mix(in srgb, var(--clr-rose), transparent 85%);
+}
+
+[data-accent="emerald"] {
+  --accent: var(--clr-emerald);
+  --accent-muted: color-mix(in srgb, var(--clr-emerald), transparent 85%);
+}
+
+[data-accent="amber"] {
+  --accent: var(--clr-amber);
+  --accent-muted: color-mix(in srgb, var(--clr-amber), transparent 85%);
 }
 
 html {
@@ -37,7 +74,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, --accent 0.3s ease;
 }
 
 @layer utilities {
@@ -45,7 +82,7 @@ body {
     text-shadow: 0 0 10px var(--accent);
     filter: drop-shadow(0 0 5px var(--accent));
   }
-  
+
   .border-glow {
     box-shadow: 0 0 15px var(--accent-muted);
   }
@@ -59,6 +96,16 @@ body {
     background: color-mix(in srgb, var(--background), transparent 40%);
     backdrop-filter: blur(8px);
     border: 1px solid var(--border);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
   }
 }
 
@@ -79,13 +126,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@theme {
-  --animate-marquee: marquee 30s linear infinite;
-}
-
